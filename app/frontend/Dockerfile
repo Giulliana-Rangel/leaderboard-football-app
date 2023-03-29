@@ -25,4 +25,6 @@ COPY . /app-frontend/
 
 EXPOSE 3000
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["npm", "run"]
+
+CMD [ "start" ]

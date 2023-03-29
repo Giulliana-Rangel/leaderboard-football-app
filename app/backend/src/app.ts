@@ -1,4 +1,5 @@
 import * as express from 'express';
+import teamsRoute from './routes/teams.route';
 
 class App {
   public app: express.Express;
@@ -19,9 +20,13 @@ class App {
       res.header('Access-Control-Allow-Headers', '*');
       next();
     };
-
     this.app.use(express.json());
     this.app.use(accessControl);
+
+    // rotas ftc:
+    this.app.use('/teams', teamsRoute.route);
+
+    // this.app.get('/teams', (req, res) => (res.send(200)));
   }
 
   public start(PORT: string | number):void {

@@ -25,4 +25,4 @@ COPY . /app-backend/
 
 EXPOSE 3001
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["npm", "run"]
