@@ -9,7 +9,7 @@ export default class TeamsService {
   };
 
   public async getById(id: number | string) {
-    const byId = await this.teamsModel.findByPk(id);
-    return byId;
+    const result = await this.teamsModel.findByPk(id);
+    return result;
   }
 }
