@@ -4,38 +4,47 @@
 // import chaiHttp = require('chai-http');
 
 // import { app } from '../../app';
-// import teamsModel from '../../database/models/Teams';
-// import TeamsService from '../../database/services/teams.service';
+// import { Model } from 'sequelize';
 
 // import { Response } from 'superagent';
+
+// import Teams from '../../database/models/Teams';
+// import { teams, team } from '../mocks/teams.mock';
 
 // chai.use(chaiHttp);
 
 // const { expect } = chai;
 
 // describe('Team Service', () => {
-//    let chaiHttpResponse: Response;
+//   let chaiHttpResponse: Response;
 
-//   before(async () => {
-//     sinon
-//       .stub(Example, "findOne")
-//       .resolves({
-//         ...<Seu mock>
-//       } as Example);
+//   beforeEach(async () => {
+//     sinon.stub(Model, "findAll")
+//       .resolves(teams as Teams[]);
 //   });
 
-//   after(()=>{
-//     (Example.findOne as sinon.SinonStub).restore();
+//   afterEach(() => {
+//     (Teams.findAll as sinon.SinonStub).restore();
 //   })
 
-//   it('...', async () => {
+//    it('If endpoins "get/teams" return all', async () => {
 //     chaiHttpResponse = await chai
-//        .request(app)
-//        ...
+//       .request(app)
+//       .get('/teams');
 
-//     expect(...)
-//   });
-//   it('Seu sub-teste', () => {
-//     expect(false).to.be.eq(true);
-//   });
+//       expect(chaiHttpResponse.status).to.be.eq(200);
+//       expect(chaiHttpResponse).to.be.an('array');
+//       expect(chaiHttpResponse.body).to.be.deep.eq(teams);
+//    });
+
+//    it('If endpoins "get/teams" return all', async () => {
+//     chaiHttpResponse = await chai
+//     .request(app)
+//     .get('/teams/1');
+
+//     expect(chaiHttpResponse).to.be.eq(200);
+//     expect(chaiHttpResponse.body[0]).to.be.deep.eq(teams[0]);
+//    })
+
+
 // });
