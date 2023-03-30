@@ -11,18 +11,23 @@ export default class UserController {
       const { email, password } = req.body;
       // console.log('Controller', email, password);
       const login = await this.service.createLogin({ email, password });
-
-      const validaPassword = await bcrypt.compare(password, login?.password || '');
+      if (!login) {
+        return res.status(401).json({ message: 'Invalid email or password' });
+      }
+      const validaPassword = await bcrypt.compare(password, login.password);
       if (!validaPassword) {
         return res.status(401).json({ message: 'Invalid email or password' });
       }
-      if (login) {
-        const token = createToken(login);
-        return res.status(200).json({ token });
-      }
+      const token = createToken(login);
+      return res.status(200).json({ token });
     } catch (err) {
       // console.log(err);
       return res.status(500).json({ message: (err as Error).message });
     }
+  };
+
+  public roleLogin = async (req: Request, res: Response) => {
+    const { role } = req.body;
+    res.status(200).json({ role });
   };
 }
