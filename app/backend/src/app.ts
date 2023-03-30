@@ -1,5 +1,6 @@
 import * as express from 'express';
 import teamsRoute from './routes/teams.route';
+import loginRoute from './routes/User.route';
 
 class App {
   public app: express.Express;
@@ -25,6 +26,8 @@ class App {
 
     // rotas ftc:
     this.app.use('/teams', teamsRoute.route);
+
+    this.app.use('/login', loginRoute.router);
 
     // this.app.get('/teams', (req, res) => (res.send(200)));
   }

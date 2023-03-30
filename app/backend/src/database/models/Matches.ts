@@ -1,6 +1,6 @@
 import { BOOLEAN, INTEGER, Model } from 'sequelize';
 import db from '.';
-import Users from './Users';
+import Users from './Users.model';
 
 export default class Matches extends Model {
   declare id: number;
