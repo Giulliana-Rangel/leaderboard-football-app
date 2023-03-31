@@ -8,10 +8,12 @@ const secret: string = process.env.JWT_SECRET || 'secret';
 //   // expiresIn: '15min',
 // };
 
-const createToken = (payload: Ilogin) => jwt.sign({ payload }, secret, {
-  algorithm: 'HS256',
-});
-console.log('AUTH ===>', createToken);
+const createToken = (payload: Ilogin) => {
+  console.log('createToken', payload);
+  return jwt.sign({ payload }, secret, {
+    algorithm: 'HS256',
+  });
+};
 
 const validateToken = (token: string) => jwt.verify(token, secret);
 

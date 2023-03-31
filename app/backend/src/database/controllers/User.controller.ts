@@ -18,16 +18,18 @@ export default class UserController {
       if (!validaPassword) {
         return res.status(401).json({ message: 'Invalid email or password' });
       }
+
       const token = createToken(login);
       return res.status(200).json({ token });
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       return res.status(500).json({ message: (err as Error).message });
     }
   };
 
   public roleLogin = async (req: Request, res: Response) => {
     const { role } = req.body;
-    res.status(200).json({ role });
+    console.log('controllerUser==>', { role });
+    return res.status(200).json({ role });
   };
 }
