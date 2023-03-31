@@ -22,14 +22,14 @@ export default class UserController {
       const token = createToken(login);
       return res.status(200).json({ token });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       return res.status(500).json({ message: (err as Error).message });
     }
   };
 
   public roleLogin = async (req: Request, res: Response) => {
     const { role } = req.body;
-    console.log('controllerUser==>', { role });
+    // console.log('controllerUser==>', { role });
     return res.status(200).json({ role });
   };
 }

@@ -25,3 +25,12 @@ export interface IPayloadUser {
     password: string;
   }
 }
+
+export interface IMatches {
+  id: number;
+  homeTeamId: number;
+  homeTeamGoals: number;
+  awayTeamId: number;
+  awayTeamGoals: number;
+  inProgress: boolean;
+}

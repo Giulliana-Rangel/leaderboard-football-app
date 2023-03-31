@@ -1,4 +1,5 @@
 import * as express from 'express';
+import matchesRoute from './routes/Matches.route';
 import teamsRoute from './routes/teams.route';
 import loginRoute from './routes/User.route';
 
@@ -28,6 +29,8 @@ class App {
     this.app.use('/teams', teamsRoute.route);
 
     this.app.use('/login', loginRoute.router);
+
+    this.app.use('/matches', matchesRoute.route);
 
     // this.app.get('/teams', (req, res) => (res.send(200)));
   }
