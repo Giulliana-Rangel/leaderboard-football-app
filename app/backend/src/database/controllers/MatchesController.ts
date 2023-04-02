@@ -29,9 +29,9 @@ export default class MatchesController {
 
   getUpdateMatches = async (req: Request, res: Response) => {
     const { id } = req.params;
-    const { awayTeamGoals, homeTeamGoals } = req.body;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
     try {
-      const update = await this._service.getUpdateMatches(+id, awayTeamGoals, homeTeamGoals);
+      const update = await this._service.getUpdateMatches(+id, homeTeamGoals, awayTeamGoals);
       console.log('MatchesController ===>', update);
       return res.status(200).json({ message: 'The score has been changed' });
     } catch (error) {
