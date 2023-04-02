@@ -25,6 +25,27 @@ class MatchesService {
     });
     return progress;
   };
+
+  public getbyIdFinish = async (id: number | string) => {
+    const finished = await this.model.update(
+      { inProgress: false },
+      { where: { id } },
+    );
+    return finished;
+  };
+
+  public getUpdateMatches = async (
+    id: number | string,
+    homeTeamGoals:number,
+    awayTeamGoals:number,
+  ) => {
+    const updateMatches = await this.model.update(
+      { homeTeamGoals, awayTeamGoals },
+      { where: { id: +id } },
+    );
+    // console.log('MatchesServices', updateMatches);
+    return updateMatches;
+  };
 }
 
 export default MatchesService;

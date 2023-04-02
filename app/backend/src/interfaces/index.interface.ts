@@ -34,3 +34,9 @@ export interface IMatches {
   awayTeamGoals: number;
   inProgress: boolean;
 }
+
+export interface IUpdateMatches {
+  id: number,
+  homeTeamGoals: number;
+  awayTeamGoals: number;
+}
