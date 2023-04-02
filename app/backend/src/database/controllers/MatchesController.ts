@@ -31,9 +31,25 @@ export default class MatchesController {
     const { id } = req.params;
     const { homeTeamGoals, awayTeamGoals } = req.body;
     try {
-      const update = await this._service.getUpdateMatches(+id, homeTeamGoals, awayTeamGoals);
-      console.log('MatchesController ===>', update);
+      await this._service.getUpdateMatches(+id, homeTeamGoals, awayTeamGoals);
+      // console.log('MatchesController ===>', update);
       return res.status(200).json({ message: 'The score has been changed' });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: (error as Error).message });
+    }
+  };
+
+  createNewMatch = async (req: Request, res: Response) => {
+    const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = req.body;
+    try {
+      const newMatch = await this._service.createNewMatch(
+        homeTeamId,
+        awayTeamId,
+        homeTeamGoals,
+        awayTeamGoals,
+      );
+      return res.status(201).json(newMatch);
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: (error as Error).message });
