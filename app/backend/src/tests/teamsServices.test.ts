@@ -15,7 +15,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('Team Service', () => {
+describe('get/team', () => {
   let chaiHttpResponse: Response;
 
   beforeEach(() => {
