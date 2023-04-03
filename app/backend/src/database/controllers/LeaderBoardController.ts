@@ -1,22 +1,27 @@
-import { Request, Response, NextFunction } from 'express';
-import LeaderBoardService from '../services/LeaderboardService';
+// import { Request, Response } from 'express';
+// import { ILeaderboardHome } from '../../interfaces/index.interface';
+// import LeaderBoardService from '../services/LeaderboardService';
 
-export default class LeaderBoardController {
-   constructor(private _service = LeaderBoardService) {}
+// export default class LeaderBoardController {
+//   private _service: ILeaderboardHome;
 
-  public getAll = async (req: Request, res: Response, next: NextFunction) => {
-    // let path;
+//   constructor(leaderBoardService: ILeaderboardHome) {
+//     this._service = leaderBoardService;
+//   }
 
-    // if (req.url === '/') {
-    //   path = '/';
-    // } else {
-    //   path = req.url === '/home' ? 'home' : 'away';
-    // }
+//   public getAll = async (req: Request, res: Response): Promise<Response | void> => {
+//     let path;
 
-    try {
-      const teams = await LeaderBoardService.
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
+//     if (req.url === '/') {
+//       path = '/';
+//     } else {
+//       path = req.url === '/home' ? 'home' : 'away';
+//     }
+//     try {
+//       const teams = await this._service.getGeneralBoard(path);
+//       return res.status(200).json(teams);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// }
