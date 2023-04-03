@@ -25,7 +25,7 @@ describe('Team Service', () => {
     sinon.restore();
   })
 
-   it('If endpoins "get/teams" return all', async () => {
+   it('If endpoints "get/teams" return allTeams', async () => {
     sinon.stub(Model, "findAll")
     .resolves(teams as Teams[]);
 
