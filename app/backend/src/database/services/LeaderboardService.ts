@@ -1,7 +1,7 @@
 import { ITeamPoints } from '../../interfaces/index.interface';
 import Teams from '../models/Teams';
 import MatchesService from './MatchesService';
-// import TeamPoints from './TeamPoints';
+import TeamPoints from './TeamPoints';
 
 export default class LeaderBoardService {
   constructor(
@@ -44,14 +44,25 @@ export default class LeaderBoardService {
     });
   };
 
-  // getLeaderBoard = async (path = '/') => {
-  //   const teams = await this.getAllTeams();
-  //   const teamPoints = teams.map((team) => new TeamPoints(team.teamName));
+  getLeaderboard = async (path = '/') => {
+    const teams = await this.getAllTeams();
+    const teamPoints = teams.map((team) => new TeamPoints(team.teamName));
 
-  //   if (path === 'home' || path === 'away') {
-  //     await this.homeOrAwayLeaderBoard(teamPoints, path);
-  //   } else {
-  //     await this.getGeneralBoard(teamPoints);
-  //   }
-  // };
+    if (path === 'home' || path === 'away') {
+      await this.homeOrAwayLeaderBoard(teamPoints, path);
+    } else {
+      await this.getGeneralBoard(teamPoints);
+    }
+    return LeaderBoardService.getSort(teamPoints);
+  };
+
+  static getSort = async (array:ITeamPoints[]) => array.sort((a: ITeamPoints, b: ITeamPoints) => {
+    if (a.totalPoints === b.totalPoints) {
+      if (a.goalsBalance === b.goalsBalance) {
+        return a.goalsFavor - b.goalsFavor;
+      }
+      return a.goalsBalance - b.goalsBalance;
+    }
+    return a.totalPoints - b.totalPoints;
+  });
 } // fecha a class

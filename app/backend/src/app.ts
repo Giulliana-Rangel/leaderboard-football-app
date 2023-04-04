@@ -2,6 +2,7 @@ import * as express from 'express';
 import matchesRoute from './routes/Matches.route';
 import teamsRoute from './routes/teams.route';
 import loginRoute from './routes/User.route';
+import leaderBoardRoute from './routes/LeaderBoard.route';
 
 class App {
   public app: express.Express;
@@ -31,6 +32,8 @@ class App {
     this.app.use('/login', loginRoute.router);
 
     this.app.use('/matches', matchesRoute.route);
+
+    this.app.use('/leaderboard', leaderBoardRoute.route);
 
     // this.app.get('/teams', (req, res) => (res.send(200)));
   }

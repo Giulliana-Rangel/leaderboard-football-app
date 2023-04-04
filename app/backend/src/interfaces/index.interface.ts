@@ -50,6 +50,7 @@ export interface INewMatch {
 
 export interface ITeamPoints {
   matchData: (match: IMatches, path:string) => void;
+  name: string;
   id: number;
   totalGames: number;
   totalPoints: number;
