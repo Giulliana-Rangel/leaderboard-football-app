@@ -60,7 +60,7 @@ export interface ITeamPoints {
   goalsOwn: number;
   totalDraws: number;
   goalsBalance: number;
-  efficiency: number;
+  efficiency?: number;
 }
 
 export interface ILeaderboardHome {

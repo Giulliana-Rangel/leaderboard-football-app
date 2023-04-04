@@ -1,7 +1,8 @@
-import { IMatches } from '../../interfaces/index.interface';
+import { IMatches, ITeamPoints } from '../../interfaces/index.interface';
 
-export default class TeamPoints {
+export default class TeamPoints implements ITeamPoints {
   name: string;
+  id: number;
   totalPoints: number;
   totalGames: number;
   totalVictories: number;
@@ -12,8 +13,9 @@ export default class TeamPoints {
   goalsBalance: number;
   efficiency?: number;
 
-  constructor(teamName: string) {
+  constructor(teamName: string, id: number) {
     this.name = teamName;
+    this.id = id;
     this.totalPoints = 0;
     this.totalGames = 0;
     this.totalVictories = 0;
@@ -40,13 +42,14 @@ export default class TeamPoints {
     }
   }
 
-  matchInfo(match: IMatches, path: string) {
+  matchData(match: IMatches, path: string) {
     const goalsFavor = path === 'home' ? match.homeTeamGoals : match.awayTeamGoals;
     const goalsOwn = path === 'home' ? match.awayTeamGoals : match.homeTeamGoals;
 
     this.goalsFavor += goalsFavor;
     this.goalsOwn += goalsOwn;
     this.totalGames += 1;
+    this.goalsBalance = +(this.goalsFavor - this.goalsOwn);
     this.totalPointsTeam(goalsFavor, goalsOwn);
     this.efficiency = +((this.totalPoints / (this.totalGames * 3)) * 100).toFixed(2);
   }

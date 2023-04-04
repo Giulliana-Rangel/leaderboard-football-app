@@ -46,7 +46,7 @@ export default class LeaderBoardService {
 
   getLeaderboard = async (path = '/') => {
     const teams = await this.getAllTeams();
-    const teamPoints = teams.map((team) => new TeamPoints(team.teamName));
+    const teamPoints = teams.map((team) => new TeamPoints(team.teamName, team.id));
 
     if (path === 'home' || path === 'away') {
       await this.homeOrAwayLeaderBoard(teamPoints, path);
@@ -57,12 +57,12 @@ export default class LeaderBoardService {
   };
 
   static getSort = async (array:ITeamPoints[]) => array.sort((a: ITeamPoints, b: ITeamPoints) => {
-    if (a.totalPoints === b.totalPoints) {
-      if (a.goalsBalance === b.goalsBalance) {
-        return a.goalsFavor - b.goalsFavor;
+    if (b.totalPoints === a.totalPoints) {
+      if (b.goalsBalance === a.goalsBalance) {
+        return b.goalsFavor - a.goalsFavor;
       }
-      return a.goalsBalance - b.goalsBalance;
+      return b.goalsBalance - a.goalsBalance;
     }
-    return a.totalPoints - b.totalPoints;
+    return b.totalPoints - a.totalPoints;
   });
 } // fecha a class
