@@ -1,10 +1,10 @@
 import * as express from 'express';
 import LeaderBoardController from '../database/controllers/LeaderBoardController';
-import LeaderBoardService from '../database/services/LeaderboardService';
+// import LeaderBoardService from '../database/services/LeaderboardService';
 
 class LeaderBoardRoute {
   route: express.Router;
-  private _service = new LeaderBoardService();
+  // private _service = new LeaderBoardService();
   private _controller = new LeaderBoardController();
 
   constructor() {
