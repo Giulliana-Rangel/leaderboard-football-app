@@ -100,11 +100,13 @@ describe('get/matches', () => {
         "homeTeamGoals": 3,
         "awayTeamGoals": 1
       }
+
       sinon.stub(Model, 'update');
       const chaiHttpResponse = await chai.request(app).patch('/matches/2').send(insert).set({'Authorization': tokenMock});
 
       expect(chaiHttpResponse.status).to.eq(401);
       expect(chaiHttpResponse.body).to.deep.eq({message:'Token must be a valid token'})
     })
+    
   })
   })
