@@ -93,9 +93,9 @@ describe('get/matches', () => {
         "message": "Token not found"
       })
     })
+
     it('retorna status 401 se o token tiver inválido',async () => {
       const tokenMock = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoyLCJ1c2VybmFtZSI6IlVzZXIiLCJyb2xlIjoidXNlciIsImVtYWlsIjoidXNlc'
- 
       const insert = {
         "homeTeamGoals": 3,
         "awayTeamGoals": 1
@@ -106,6 +106,5 @@ describe('get/matches', () => {
       expect(chaiHttpResponse.status).to.eq(401);
       expect(chaiHttpResponse.body).to.deep.eq({message:'Token must be a valid token'})
     })
-
   })
   })
