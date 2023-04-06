@@ -60,20 +60,19 @@ describe('POST/login', () => {
           expect(chaiHttpResponse.status).to.be.equal(200)
       })
     })
-    // describe('Requisições status(200), feita com sucesso!',() => {
-    //   it('retorna status 200', async () => {
-    //     const user = { id: 1, email: 'admin@admin.com', password: '$2a$08$xi.Hxk1czAO0nZR..B393u10aED0RQ1N3PAEXQ7HxtLjKPEZBu.PW', role: 'admin', username: 'admin' };
+    describe('Requisições status(200), feita com sucesso!',() => {
+      it('retorna status 200', async () => {
+        const user = { id: 1, email: 'admin@admin.com', password: '$2a$08$xi.Hxk1czAO0nZR..B393u10aED0RQ1N3PAEXQ7HxtLjKPEZBu.PW', role: 'admin', username: 'admin' };
 
-    //     sinon.stub(Model, 'findOne').resolves(user as Users);
-    //     sinon.stub(validateToken.prototype).resolves()
+        sinon.stub(Model, 'findOne').resolves(user as Users);
+        // sinon.stub(validateToken.prototype).resolves()
 
-    //     const test = await chai.request(app).post('/login').send({ email: 'admin@admin.com',
-    //     password : "secret_admin"});});
+        const chaiHttpResponse  = await chai.request(app).post('/login').send({ email: 'admin@admin.com',
+        password : "secret_admin"});
 
-    //     const chaiHttpResponse = chai.request(app).get('login/role').send(test)
-    //     // como pegat a autorização?? 
+        // como pegat a autorização?? 
 
-    //       expect(chaiHttpResponse.status).to.be.equal(200)
-    //   })
+          expect(chaiHttpResponse.status).to.be.equal(200)
+      })
     })
-  
+  })
