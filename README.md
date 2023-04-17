@@ -1,4 +1,4 @@
-# Projeto: Site Informativo Sobre partidas e Classificações de Futebol
+# Projeto: Site Informativo Sobre Partidas e Classificações de Futebol
 
 ## Descrição:
 Desenvolvimento de uma API e integração do Back_end com o Front e Banco de Dados através do docker-compose.
@@ -18,8 +18,7 @@ Também neste projeto utilizei TypeScript e Programação Orientada a Objetos;
 - Criação de tabela dinâmica com o resultados dos jogos com ranking de desempenho, classificação dos times através das regras de negócio que foram definidas (Total de pontos, jogos, vitórias, empates, derrotas, golas a favor e contra, saldo de gols e aproveitamento do time);
 - Testes de Integração - com cobertura superior a 80%
 
-### ![image](https://user-images.githubusercontent.com/108955720/232452808-0cbeffdc-5c2c-4f07-be9a-ef33c757e7a3.png)
- Stacks Utilizadas:
+### Stacks Utilizadas:
 - Docker
 - MySQL
 - Sequelize
